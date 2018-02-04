@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>归档集- 2018 - gorkr&#39;s yard</title>
+<title>std_linux - gorkr&#39;s yard</title>
 
 <meta name="keywords" content="">
 
@@ -114,8 +114,10 @@
 </div>
             <div class="page-title">
     <ul>
-        <li><a href="/" data-name="Home" title="Back Home">Home</a></li>
-        <li><a href="/tags" data-name="Tag Cloud" title="Tag Cloud">Tags</a></li>
+        <li><a href="/">最新</a></li>
+        
+        
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <label for="s" class="sr-only">Input Search key Words Here</label>
@@ -157,47 +159,138 @@
 <div class="main-inner">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
-            <h3 class="post-title">坦率的讲 - 本站目前共计3篇文章</h3>
-        </div>
-        <p><img src="/images/category-bg.jpg" alt="category-bg"></p>
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <div class="archives">
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2018年02月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>04日21:45:43
-                            <a href="/2018/02/04/std_linux/"></a>
-                        </li>
-                        
-                
-                
-                
-                        <li>04日21:44:32
-                            <a href="/2018/02/04/std-linux/">std_linux</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>04日11:38:37
-                            <a href="/2018/02/04/hello-world/">Hello World</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-02-04">2018-02-04</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">std_linux</h2>
+            <div class="post-meta">
+                本文总共1933个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
-    </article>
-</div>
+        <div class="post-content markdown-body">
+            <p>#linux基础</p>
+<ul>
+<li>shell kernel</li>
+<li>CLI: Command Line Interface  |  GUI: Graphical User Interface</li>
+<li>提示符: # =&gt; root user  |  $ =&gt; 普通 user<br>##命令: </li>
+<li>-a,–all  &amp;后台运行进程 ls</li>
+<li>ctrl+c 终止当前命令</li>
+<li>clear 清屏</li>
+<li>tab 自动补全</li>
+<li>上下键或history 历史命令</li>
+<li>!! 重复前一个命令</li>
+<li>!c 重复前一个以c开头的命令</li>
+<li>!n 以历史记录序号执行</li>
+<li>!?abc 重复之前包含”abc”的命令</li>
+<li>!-n 重复n个命令以前的命令</li>
+<li><strong>ctrl+r 历史命令的搜索功能</strong></li>
+<li>esc 调用上个命令的参数<br>##用户命令:</li>
+<li>su - username  切换到root用户</li>
+<li>sudo 使用管理员权限</li>
+<li>id 显示用户信息 </li>
+<li>passwd 修改当前用户信息<br>##进程命令:    </li>
+<li>jobs 查看这在进行的进程</li>
+<li>bg[n] 继续后台n号进程</li>
+<li>fg[n] 前台运行n号进程</li>
+</ul>
+<p>#linux文件系统结构<br>倒转的单根树状结构，根为”/“,大小写敏感。<br>每一个shell或进程都有一个当前工作目录，pwd命令显示当前工作目录。<br>touch命令创建一个空白的文件，或更新已有文件的时间。<br>以”.”开头的文件为隐藏文件。<br>命令:</p>
+<ul>
+<li>ls -a 显示所有文件</li>
+<li>ls -l 显示详细信息</li>
+<li>ls -R 递归显示子目录</li>
+<li>ls -ld +目录或链接 显示目录或链接信息  </li>
+<li>file 查看文件类型</li>
+<li>cd 切换目录</li>
+<li>“..” 上级目录  “.”当前目录  “~”家目录  “_”上一个工作目录</li>
+<li>cp 源文件 目标文件     复制文件或者目录</li>
+<li>cp -r 复制文件树  -v 显示复制过程详细信息</li>
+<li>mv 源文件 目标目录/文件名（可选）  移动</li>
+<li>rm 删除文件，目录 -r 递归删除目录中的所有内容 -i交互式删除 -f强制删除，无提示</li>
+<li>mkdir 创建一个目录    rmdir 删除一个空目录</li>
+<li>cat 查看文件内容<br>#linux文件系统</li>
+<li>bin:(binary)保存可执行二进制文件， 例如命令</li>
+<li>boot:引导目录，内有内核，uname,与系统的启动有关</li>
+<li>dev:(device)硬件设备，被抽象为文件</li>
+<li>etc:配置文件.conf</li>
+<li>lib:(library)库文件</li>
+<li>media:mnt:挂载用，自动挂载</li>
+<li>opt:大型软件</li>
+<li>proc:内存中的目录，显示系统的实时信息，内存</li>
+<li>sbin:(super binary) 只有root用户可以执行</li>
+<li>sys:底层目录</li>
+<li>tmp:临时目录</li>
+<li>usr:应用软件的默认位置</li>
+<li>var:经常变的文件，<br>#常用命令<br>##日期和时间</li>
+<li>data -U UTC时间 +%y–%m–%d</li>
+<li>data -s 修改时间 </li>
+<li>hwclok(clock) 显示硬件时钟</li>
+<li>cal 查看日历</li>
+<li>uptime 查看系统运行时间<br>##输出查看</li>
+<li>echo 显示输入的内容</li>
+<li>cat 显示文档内容</li>
+<li>more 翻页显示文件内容(只能向下翻页)</li>
+<li>less 可以上下翻页</li>
+<li>head -n 显示文件的开头n行，默认显示10行</li>
+<li>tail(尾巴) 显示文件末尾几行 -f 追踪显示文件的更新，一般用于查看日志<br>##查看硬件信息</li>
+<li>lspci 查看PCI设备 -v详细信息</li>
+<li>lsusb 查看usb设备</li>
+<li>lsmod 查看可加载模块(即驱动）<br>##关机，重启</li>
+<li>shutdown -h 关机 -r 重启 now立即执行 +10十分钟后执行 23:30定时执行</li>
+<li>poweroff 立即关机  reboot 立即重启<br>##归档，压缩</li>
+<li>zip 压缩后的文件名 文件</li>
+<li>unzip 解压</li>
+<li>gzip 压缩</li>
+<li>tar -cvf out.tar linuxcast  归档</li>
+<li>tar -xvf linuxcast.tar 解归档</li>
+<li>tar -cvzf 归档并压缩<br>##查找</li>
+<li>local keyword 快速查找文件  需要建立数据库 updatedb手动更新数据库</li>
+<li>find 查找位置 查找参数 -name按名称查找 -perm权限 -type</li>
+</ul>
+<p>#VI&amp;VIM<br>vi是命令行界面下的文本编译器 vim更强<br>使用命令vi或者vim 在命令行中启用vim</p>
+<ul>
+<li>vim 目标文件  如果目标文件存在，则打开。不存在，则创建。<br>##esc:</li>
+<li>i 插入模式</li>
+<li>o 在当前行下插入新行</li>
+<li>dd 删除整行</li>
+<li>yy 复制整行 n+yy 多行复制</li>
+<li>p 粘贴</li>
+<li>r 替换当前字符</li>
+<li>/ 查找关键字<br>##ex:</li>
+<li>w 保存当前修改</li>
+<li>q 退出，q!强制退出</li>
+<li>x 保存并退出 = wq</li>
+<li>set number 显示行号</li>
+<li>!系统命令 执行一个系统命令</li>
+<li>sh 切回命令行 ctrl+d 切回vim</li>
+</ul>
 
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/note/">note</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
