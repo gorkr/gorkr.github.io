@@ -106,7 +106,15 @@
     <ul>
         <li><a href="/">最新</a></li>
         
-        
+            
+                <li class="active">
+                    <a href="/categories/note" data-name="note">note</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/diary" data-name="diary">diary</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -161,7 +169,7 @@
             </div>
             <h2 class="post-title">linux学习笔记【二】</h2>
             <div class="post-meta">
-                本文总共1226个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1144个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -179,10 +187,34 @@
 <h3 id="2-3-DUMPE2FS"><a href="#2-3-DUMPE2FS" class="headerlink" title="2.3 DUMPE2FS"></a>2.3 DUMPE2FS</h3><p>dumpe2fs /dev/sdan 查看文件系统信息。</p>
 <h3 id="2-4-E2LABEL"><a href="#2-4-E2LABEL" class="headerlink" title="2.4 E2LABEL"></a>2.4 E2LABEL</h3><ul>
 <li>e2label /dev/sdbn 显示标签</li>
-<li>e2label /dev/sdbn LABEL 加标签<h3 id="2-5-FSCK"><a href="#2-5-FSCK" class="headerlink" title="2.5 FSCK"></a>2.5 FSCK</h3>fsck /dev/sdbn 检查并修复文件系统（必须先卸载）<br>-y 直接修复不提示。 -t 文件系统损坏严重时，标识文件系统。<br>lost+found 将恢复的文件放入lost+found。<h2 id="3-挂载，使用文件系统"><a href="#3-挂载，使用文件系统" class="headerlink" title="3.挂载，使用文件系统"></a>3.挂载，使用文件系统</h2>创建好文件系统后，需要挂载到一个目录才能使用。linux需要手动挂载。<br>系统推荐挂载到/mnt目录下。</li>
-<li>mount /dev/sdan(要挂载的文件系统) /mnt/（挂载位置）<br>mount 不加参数，显示已经挂载的文件系统。</li>
-<li>umount 文件系统/挂载点 卸载文件系统<br>: device is busy 使用 fuser命令查看正在占用设备的进程。<br>通过配置文件 /etc/fstab 定义需要自动挂载的文件系统。<br>| /dev/sdan                        | /mnt   | ext4     | defaults | 0 0       |<br>|:——————————–:|:——:|:——–:|:——–:|:———:|<br>| 需要挂载的设备（也可以使用卷标） | 挂载点 | 文件系统 | 挂载选项 | dump fsck | </li>
+<li>e2label /dev/sdbn LABEL 加标签</li>
 </ul>
+<h3 id="2-5-FSCK"><a href="#2-5-FSCK" class="headerlink" title="2.5 FSCK"></a>2.5 FSCK</h3><p>fsck /dev/sdbn 检查并修复文件系统（必须先卸载）<br>-y 直接修复不提示。 -t 文件系统损坏严重时，标识文件系统。<br>lost+found 将恢复的文件放入lost+found。</p>
+<h2 id="3-挂载，使用文件系统"><a href="#3-挂载，使用文件系统" class="headerlink" title="3.挂载，使用文件系统"></a>3.挂载，使用文件系统</h2><p>创建好文件系统后，需要挂载到一个目录才能使用。linux需要手动挂载。<br>系统推荐挂载到/mnt目录下。</p>
+<ul>
+<li>mount /dev/sdan(要挂载的文件系统) /mnt/（挂载位置）<br>mount 不加参数，显示已经挂载的文件系统。</li>
+<li>umount 文件系统/挂载点 卸载文件系统<br>: device is busy 使用 fuser命令查看正在占用设备的进程。<br>通过配置文件 /etc/fstab 定义需要自动挂载的文件系统。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">/dev/sdan</th>
+<th style="text-align:center">/mnt</th>
+<th style="text-align:center">ext4</th>
+<th style="text-align:center">defaults</th>
+<th style="text-align:center">0 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">需要挂载的设备（也可以使用卷标）</td>
+<td style="text-align:center">挂载点</td>
+<td style="text-align:center">文件系统</td>
+<td style="text-align:center">挂载选项</td>
+<td style="text-align:center">dump fsck</td>
+</tr>
+</tbody>
+</table>
 
         </div>
         <div class="post-tool">
