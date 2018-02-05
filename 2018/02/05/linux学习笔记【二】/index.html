@@ -161,31 +161,27 @@
             </div>
             <h2 class="post-title">linux学习笔记【二】</h2>
             <div class="post-meta">
-                本文总共1204个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1226个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>#linux磁盘系统</p>
-<p>##1.基础<br>cylinder 柱面 sector 扇面 head 磁头</p>
+            <h1 id="linux磁盘系统"><a href="#linux磁盘系统" class="headerlink" title="linux磁盘系统"></a>linux磁盘系统</h1><h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h2><p>cylinder 柱面 sector 扇面 head 磁头</p>
 <p>linux中所有硬件设备被抽象为文件，保存在/dev目录下。<br>SATA,SCSI,SAS,USB等设备名称为sd[a-z]。</p>
 <ul>
 <li>命名规则： 设备名称+分区号  （每个区当做独立的磁盘使用）<br>主流的分区机制包括：MBR 和 GPT 。<br>MPR为传统的bios引导机制，支持分区数量有限，不支持超过2T的硬盘。</li>
-<li>分区：主分区 拓展分区（不可用） 逻辑分区<br>GPT机制在支持UEFI的硬件上才能使用，系统必须为64bit。<br>##2.FDISK分区工具（基于MNR）</li>
+<li>分区：主分区 拓展分区（不可用） 逻辑分区<br>GPT机制在支持UEFI的硬件上才能使用，系统必须为64bit。<h2 id="2-FDISK分区工具（基于MNR）"><a href="#2-FDISK分区工具（基于MNR）" class="headerlink" title="2.FDISK分区工具（基于MNR）"></a>2.FDISK分区工具（基于MNR）</h2></li>
 <li>fdisk -l 列出所有已安装的硬盘及信息。</li>
 <li>fdisk /dev/sdn 进行分区 分区之后使用partprobe命令更新分区表</li>
 </ul>
-<p>#linux文件系统</p>
-<p>##1.基础<br>创建文件系统的过程就是格式化。<br>没有文件系统的设备叫做裸(raw)设备。<br>文件系统的区别在于：日志，分区大小，文件大小，性能。<br>带有日志的文件系统稳定性较强，出错时可恢复。（写，操，删）但会丧失一定性能。</p>
-<p>##2.创建，查看，修复文件系统</p>
-<p>###2.1 MKE2FS<br>mke2fs -t ext4(格式) /dev/sdan 创建文件系统。<br>参数： - -b blocksize 文件块大小。<br>         -c 检查坏块。<br>         -l label 指定卷标。<br>         -j 建立文件系统日志。</p>
-<p>###2.2 MKFS<br>mkfs ext4 /dev/sdbn<br>简单，但不能精细化控制。</p>
-<p>###2.3 DUMPE2FS<br>dumpe2fs /dev/sdan 查看文件系统信息。</p>
-<p>###2.4 E2LABEL</p>
-<ul>
+<h1 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h1><h2 id="1-基础-1"><a href="#1-基础-1" class="headerlink" title="1.基础"></a>1.基础</h2><p>创建文件系统的过程就是格式化。<br>没有文件系统的设备叫做裸(raw)设备。<br>文件系统的区别在于：日志，分区大小，文件大小，性能。<br>带有日志的文件系统稳定性较强，出错时可恢复。（写，操，删）但会丧失一定性能。</p>
+<h2 id="2-创建，查看，修复文件系统"><a href="#2-创建，查看，修复文件系统" class="headerlink" title="2.创建，查看，修复文件系统"></a>2.创建，查看，修复文件系统</h2><h3 id="2-1-MKE2FS"><a href="#2-1-MKE2FS" class="headerlink" title="2.1 MKE2FS"></a>2.1 MKE2FS</h3><p>mke2fs -t ext4(格式) /dev/sdan 创建文件系统。<br>参数： - -b blocksize 文件块大小。<br>         -c 检查坏块。<br>         -l label 指定卷标。<br>         -j 建立文件系统日志。</p>
+<h3 id="2-2-MKFS"><a href="#2-2-MKFS" class="headerlink" title="2.2 MKFS"></a>2.2 MKFS</h3><p>mkfs ext4 /dev/sdbn<br>简单，但不能精细化控制。</p>
+<h3 id="2-3-DUMPE2FS"><a href="#2-3-DUMPE2FS" class="headerlink" title="2.3 DUMPE2FS"></a>2.3 DUMPE2FS</h3><p>dumpe2fs /dev/sdan 查看文件系统信息。</p>
+<h3 id="2-4-E2LABEL"><a href="#2-4-E2LABEL" class="headerlink" title="2.4 E2LABEL"></a>2.4 E2LABEL</h3><ul>
 <li>e2label /dev/sdbn 显示标签</li>
-<li>e2label /dev/sdbn LABEL 加标签<br>###2.5 FSCK<br>fsck /dev/sdbn 检查并修复文件系统（必须先卸载）<br>-y 直接修复不提示。 -t 文件系统损坏严重时，标识文件系统。<br>lost+found 将恢复的文件放入lost+found。<br>##3.挂载，使用文件系统<br>创建好文件系统后，需要挂载到一个目录才能使用。linux需要手动挂载。<br>系统推荐挂载到/mnt目录下。</li>
+<li>e2label /dev/sdbn LABEL 加标签<h3 id="2-5-FSCK"><a href="#2-5-FSCK" class="headerlink" title="2.5 FSCK"></a>2.5 FSCK</h3>fsck /dev/sdbn 检查并修复文件系统（必须先卸载）<br>-y 直接修复不提示。 -t 文件系统损坏严重时，标识文件系统。<br>lost+found 将恢复的文件放入lost+found。<h2 id="3-挂载，使用文件系统"><a href="#3-挂载，使用文件系统" class="headerlink" title="3.挂载，使用文件系统"></a>3.挂载，使用文件系统</h2>创建好文件系统后，需要挂载到一个目录才能使用。linux需要手动挂载。<br>系统推荐挂载到/mnt目录下。</li>
 <li>mount /dev/sdan(要挂载的文件系统) /mnt/（挂载位置）<br>mount 不加参数，显示已经挂载的文件系统。</li>
-<li>umount 文件系统/挂载点 卸载文件系统<br>: device is busy 使用 fuser命令查看正在占用设备的进程。<br>通过配置文件 /etc/fstab 定义需要自动挂载的文件系统。<br>| /dev/sdan | /mnt | ext4 | defaults | 0 0 |<br>|———–|——|——|———-|—–|<br>| 需要挂载的设备（也可以使用卷标） | 挂载点 | 文件系统 | 挂载选项 | dump fsck | </li>
+<li>umount 文件系统/挂载点 卸载文件系统<br>: device is busy 使用 fuser命令查看正在占用设备的进程。<br>通过配置文件 /etc/fstab 定义需要自动挂载的文件系统。<br>| /dev/sdan                        | /mnt   | ext4     | defaults | 0 0       |<br>|:——————————–:|:——:|:——–:|:——–:|:———:|<br>| 需要挂载的设备（也可以使用卷标） | 挂载点 | 文件系统 | 挂载选项 | dump fsck | </li>
 </ul>
 
         </div>
@@ -196,6 +192,8 @@
         </div>
         
         <div class="post-tags">Tags：
+            
+            <a href="/tags/note/">note</a>
             
         </div>
         
