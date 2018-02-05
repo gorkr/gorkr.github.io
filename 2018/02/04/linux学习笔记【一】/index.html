@@ -169,14 +169,13 @@
             </div>
             <h2 class="post-title">linux学习笔记【一】</h2>
             <div class="post-meta">
-                本文总共1900个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2022个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h1><p>shell kernel</p>
-<p>CLI: Command Line Interface  |  GUI: Graphical User Interface</p>
-<p>提示符: # =&gt; root user  |  $ =&gt; 普通 user</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令:"></a>命令:</h2><ul>
+            <p>#1. linux基础<br>shell kernel<br>CLI: Command Line Interface  |  GUI: Graphical User Interface<br>提示符: # =&gt; root user  |  $ =&gt; 普通 user</p>
+<p>##1.1 命令: </p>
+<ul>
 <li>-a,–all  &amp;后台运行进程 ls</li>
 <li>ctrl+c 终止当前命令</li>
 <li>clear 清屏</li>
@@ -188,16 +187,22 @@
 <li>!?abc 重复之前包含”abc”的命令</li>
 <li>!-n 重复n个命令以前的命令</li>
 <li><strong>ctrl+r 历史命令的搜索功能</strong></li>
-<li>esc 调用上个命令的参数<h2 id="用户命令"><a href="#用户命令" class="headerlink" title="用户命令:"></a>用户命令:</h2></li>
+<li>esc 调用上个命令的参数</li>
+</ul>
+<p>##1.2 用户命令:</p>
+<ul>
 <li>su - username  切换到root用户</li>
 <li>sudo 使用管理员权限</li>
 <li>id 显示用户信息 </li>
-<li>passwd 修改当前用户信息<h2 id="进程命令"><a href="#进程命令" class="headerlink" title="进程命令:"></a>进程命令:</h2></li>
+<li>passwd 修改当前用户信息</li>
+</ul>
+<p>##1.2 进程命令:    </p>
+<ul>
 <li>jobs 查看这在进行的进程</li>
 <li>bg[n] 继续后台n号进程</li>
 <li>fg[n] 前台运行n号进程</li>
 </ul>
-<h1 id="linux文件系统结构"><a href="#linux文件系统结构" class="headerlink" title="linux文件系统结构"></a>linux文件系统结构</h1><p>倒转的单根树状结构，根为”/“,大小写敏感。<br>每一个shell或进程都有一个当前工作目录，pwd命令显示当前工作目录。<br>touch命令创建一个空白的文件，或更新已有文件的时间。<br>以”.”开头的文件为隐藏文件。<br>命令:</p>
+<p>#2. linux文件系统结构<br>倒转的单根树状结构，根为”/“,大小写敏感。<br>每一个shell或进程都有一个当前工作目录，pwd命令显示当前工作目录。<br>touch命令创建一个空白的文件，或更新已有文件的时间。<br>以”.”开头的文件为隐藏文件。<br>命令:</p>
 <ul>
 <li>ls -a 显示所有文件</li>
 <li>ls -l 显示详细信息</li>
@@ -211,7 +216,10 @@
 <li>mv 源文件 目标目录/文件名（可选）  移动</li>
 <li>rm 删除文件，目录 -r 递归删除目录中的所有内容 -i交互式删除 -f强制删除，无提示</li>
 <li>mkdir 创建一个目录    rmdir 删除一个空目录</li>
-<li>cat 查看文件内容<h1 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h1></li>
+<li>cat 查看文件内容</li>
+</ul>
+<p>#3. linux文件系统</p>
+<ul>
 <li>bin:(binary)保存可执行二进制文件， 例如命令</li>
 <li>boot:引导目录，内有内核，uname,与系统的启动有关</li>
 <li>dev:(device)硬件设备，被抽象为文件</li>
@@ -224,42 +232,65 @@
 <li>sys:底层目录</li>
 <li>tmp:临时目录</li>
 <li>usr:应用软件的默认位置</li>
-<li>var:经常变的文件，<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h2></li>
+<li>var:经常变的文件，</li>
+</ul>
+<p>#4. 常用命令</p>
+<p>##4.1 日期和时间</p>
+<ul>
 <li>data -U UTC时间 +%y–%m–%d</li>
 <li>data -s 修改时间 </li>
 <li>hwclok(clock) 显示硬件时钟</li>
 <li>cal 查看日历</li>
-<li>uptime 查看系统运行时间<h2 id="输出查看"><a href="#输出查看" class="headerlink" title="输出查看"></a>输出查看</h2></li>
+<li>uptime 查看系统运行时间</li>
+</ul>
+<p>##4.2 输出查看</p>
+<ul>
 <li>echo 显示输入的内容</li>
 <li>cat 显示文档内容</li>
 <li>more 翻页显示文件内容(只能向下翻页)</li>
 <li>less 可以上下翻页</li>
 <li>head -n 显示文件的开头n行，默认显示10行</li>
-<li>tail(尾巴) 显示文件末尾几行 -f 追踪显示文件的更新，一般用于查看日志<h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
+<li>tail(尾巴) 显示文件末尾几行 -f 追踪显示文件的更新，一般用于查看日志</li>
+</ul>
+<p>##4.3 查看硬件信息</p>
+<ul>
 <li>lspci 查看PCI设备 -v详细信息</li>
 <li>lsusb 查看usb设备</li>
-<li>lsmod 查看可加载模块(即驱动）<h2 id="关机，重启"><a href="#关机，重启" class="headerlink" title="关机，重启"></a>关机，重启</h2></li>
+<li>lsmod 查看可加载模块(即驱动<br>）<br>##4.4 关机，重启</li>
 <li>shutdown -h 关机 -r 重启 now立即执行 +10十分钟后执行 23:30定时执行</li>
-<li>poweroff 立即关机  reboot 立即重启<h2 id="归档，压缩"><a href="#归档，压缩" class="headerlink" title="归档，压缩"></a>归档，压缩</h2></li>
+<li>poweroff 立即关机  reboot 立即重启</li>
+</ul>
+<p>##4.5 归档，压缩</p>
+<ul>
 <li>zip 压缩后的文件名 文件</li>
 <li>unzip 解压</li>
 <li>gzip 压缩</li>
 <li>tar -cvf out.tar linuxcast  归档</li>
 <li>tar -xvf linuxcast.tar 解归档</li>
-<li>tar -cvzf 归档并压缩<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></li>
+<li>tar -cvzf 归档并压缩</li>
+</ul>
+<p>##4.6 查找</p>
+<ul>
 <li>local keyword 快速查找文件  需要建立数据库 updatedb手动更新数据库</li>
 <li>find 查找位置 查找参数 -name按名称查找 -perm权限 -type</li>
 </ul>
-<h1 id="VI-amp-VIM"><a href="#VI-amp-VIM" class="headerlink" title="VI&amp;VIM"></a>VI&amp;VIM</h1><p>vi是命令行界面下的文本编译器 vim更强<br>使用命令vi或者vim 在命令行中启用vim</p>
+<p>#5. VI&amp;VIM</p>
+<p>vi是命令行界面下的文本编译器 vim更强<br>使用命令vi或者vim 在命令行中启用vim</p>
 <ul>
-<li>vim 目标文件  如果目标文件存在，则打开。不存在，则创建。<h2 id="esc"><a href="#esc" class="headerlink" title="esc:"></a>esc:</h2></li>
+<li>vim 目标文件  如果目标文件存在，则打开。不存在，则创建。</li>
+</ul>
+<p>##5.1 esc:</p>
+<ul>
 <li>i 插入模式</li>
 <li>o 在当前行下插入新行</li>
 <li>dd 删除整行</li>
 <li>yy 复制整行 n+yy 多行复制</li>
 <li>p 粘贴</li>
 <li>r 替换当前字符</li>
-<li>/ 查找关键字<h2 id="ex"><a href="#ex" class="headerlink" title="ex:"></a>ex:</h2></li>
+<li>/ 查找关键字</li>
+</ul>
+<p>##5.2 ex:</p>
+<ul>
 <li>w 保存当前修改</li>
 <li>q 退出，q!强制退出</li>
 <li>x 保存并退出 = wq</li>
