@@ -1,0 +1,554 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>linux学习笔记【一】</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="gorkr">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-2">
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《linux学习笔记【一】》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		11/21/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/02/04/linux学习笔记【一】/" itemprop="url">		
+			linux学习笔记【一】		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/02/04/linux学习笔记【一】/" itemprop="url">
+	<time datetime="2018-02-04T13:44:32.000Z" itemprop="datePublished">
+  		2018-02-04
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#note" title="note" rel="3">note</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<h1 id="1-linux基础"><a href="#1-linux基础" class="headerlink" title="1.linux基础"></a>1.linux基础</h1><p>shell kernel<br>CLI: Command Line Interface  |  GUI: Graphical User Interface<br>提示符: # =&gt; root user  |  $ =&gt; 普通 user</p>
+<h2 id="1-1命令"><a href="#1-1命令" class="headerlink" title="1.1命令:"></a>1.1命令:</h2><ul>
+<li>-a,–all  &amp;后台运行进程 ls</li>
+<li>ctrl+c 终止当前命令</li>
+<li>clear 清屏</li>
+<li>tab 自动补全</li>
+<li>上下键或history 历史命令</li>
+<li>!! 重复前一个命令</li>
+<li>!c 重复前一个以c开头的命令</li>
+<li>!n 以历史记录序号执行</li>
+<li>!?abc 重复之前包含”abc”的命令</li>
+<li>!-n 重复n个命令以前的命令</li>
+<li><strong>ctrl+r 历史命令的搜索功能</strong></li>
+<li>esc 调用上个命令的参数</li>
+</ul>
+<h2 id="1-2用户命令"><a href="#1-2用户命令" class="headerlink" title="1.2用户命令:"></a>1.2用户命令:</h2><ul>
+<li>su - username  切换到root用户</li>
+<li>sudo 使用管理员权限</li>
+<li>id 显示用户信息 </li>
+<li>passwd 修改当前用户信息</li>
+</ul>
+<h2 id="1-2进程命令"><a href="#1-2进程命令" class="headerlink" title="1.2进程命令:"></a>1.2进程命令:</h2><ul>
+<li>jobs 查看这在进行的进程</li>
+<li>bg[n] 继续后台n号进程</li>
+<li>fg[n] 前台运行n号进程</li>
+</ul>
+<h1 id="2-linux文件系统结构"><a href="#2-linux文件系统结构" class="headerlink" title="2.linux文件系统结构"></a>2.linux文件系统结构</h1><p>倒转的单根树状结构，根为”/“,大小写敏感。<br>每一个shell或进程都有一个当前工作目录，pwd命令显示当前工作目录。<br>touch命令创建一个空白的文件，或更新已有文件的时间。<br>以”.”开头的文件为隐藏文件。<br>命令:</p>
+<ul>
+<li>ls -a 显示所有文件</li>
+<li>ls -l 显示详细信息</li>
+<li>ls -R 递归显示子目录</li>
+<li>ls -ld +目录或链接 显示目录或链接信息  </li>
+<li>file 查看文件类型</li>
+<li>cd 切换目录</li>
+<li>“..” 上级目录  “.”当前目录  “~”家目录  “-“上一个工作目录</li>
+<li>cp 源文件 目标文件     复制文件或者目录</li>
+<li>cp -r 复制文件树  -v 显示复制过程详细信息</li>
+<li>mv 源文件 目标目录/文件名（可选）  移动</li>
+<li>rm 删除文件，目录 -r 递归删除目录中的所有内容 -i交互式删除 -f强制删除，无提示</li>
+<li>mkdir 创建一个目录    rmdir 删除一个空目录</li>
+<li>cat 查看文件内容</li>
+</ul>
+<h1 id="3-linux文件系统"><a href="#3-linux文件系统" class="headerlink" title="3.linux文件系统"></a>3.linux文件系统</h1><ul>
+<li>bin:(binary)保存可执行二进制文件， 例如命令</li>
+<li>boot:引导目录，内有内核，uname,与系统的启动有关</li>
+<li>dev:(device)硬件设备，被抽象为文件</li>
+<li>etc:配置文件.conf</li>
+<li>lib:(library)库文件</li>
+<li>media:mnt:挂载用，自动挂载</li>
+<li>opt:大型软件</li>
+<li>proc:内存中的目录，显示系统的实时信息，内存</li>
+<li>sbin:(super binary) 只有root用户可以执行</li>
+<li>sys:底层目录</li>
+<li>tmp:临时目录</li>
+<li>usr:应用软件的默认位置</li>
+<li>var:经常变的文件，</li>
+</ul>
+<h1 id="4-常用命令"><a href="#4-常用命令" class="headerlink" title="4 常用命令"></a>4 常用命令</h1><h2 id="4-1日期和时间"><a href="#4-1日期和时间" class="headerlink" title="4.1日期和时间"></a>4.1日期和时间</h2><ul>
+<li>data -U UTC时间 +%y–%m–%d</li>
+<li>data -s 修改时间 </li>
+<li>hwclok(clock) 显示硬件时钟</li>
+<li>cal 查看日历</li>
+<li>uptime 查看系统运行时间</li>
+</ul>
+<h2 id="4-2输出查看"><a href="#4-2输出查看" class="headerlink" title="4.2输出查看"></a>4.2输出查看</h2><ul>
+<li>echo 显示输入的内容</li>
+<li>cat 显示文档内容</li>
+<li>more 翻页显示文件内容(只能向下翻页)</li>
+<li>less 可以上下翻页</li>
+<li>head -n 显示文件的开头n行，默认显示10行</li>
+<li>tail(尾巴) 显示文件末尾几行 -f 追踪显示文件的更新，一般用于查看日志</li>
+</ul>
+<h2 id="4-3查看硬件信息"><a href="#4-3查看硬件信息" class="headerlink" title="4.3查看硬件信息"></a>4.3查看硬件信息</h2><ul>
+<li>lspci 查看PCI设备 -v详细信息</li>
+<li>lsusb 查看usb设备</li>
+<li>lsmod 查看可加载模块(即驱动<br>）<h2 id="4-4关机，重启"><a href="#4-4关机，重启" class="headerlink" title="4.4关机，重启"></a>4.4关机，重启</h2></li>
+<li>shutdown -h 关机 -r 重启 now立即执行 +10十分钟后执行 23:30定时执行</li>
+<li>poweroff 立即关机  reboot 立即重启</li>
+</ul>
+<h2 id="4-5归档，压缩"><a href="#4-5归档，压缩" class="headerlink" title="4.5归档，压缩"></a>4.5归档，压缩</h2><ul>
+<li>zip 压缩后的文件名 文件</li>
+<li>unzip 解压</li>
+<li>gzip 压缩</li>
+<li>tar -cvf out.tar linuxcast  归档</li>
+<li>tar -xvf linuxcast.tar 解归档</li>
+<li>tar -cvzf 归档并压缩</li>
+</ul>
+<h2 id="4-6查找"><a href="#4-6查找" class="headerlink" title="4.6查找"></a>4.6查找</h2><ul>
+<li>local keyword 快速查找文件  需要建立数据库 updatedb手动更新数据库</li>
+<li>find 查找位置 查找参数 -name按名称查找 -perm权限 -type</li>
+</ul>
+<h1 id="5-VI-amp-VIM"><a href="#5-VI-amp-VIM" class="headerlink" title="5.VI&amp;VIM"></a>5.VI&amp;VIM</h1><p>vi是命令行界面下的文本编译器 vim更强<br>使用命令vi或者vim 在命令行中启用vim</p>
+<ul>
+<li>vim 目标文件  如果目标文件存在，则打开。不存在，则创建。</li>
+</ul>
+<h2 id="5-1esc"><a href="#5-1esc" class="headerlink" title="5.1esc:"></a>5.1esc:</h2><ul>
+<li>i 插入模式</li>
+<li>o 在当前行下插入新行</li>
+<li>dd 删除整行</li>
+<li>yy 复制整行 n+yy 多行复制</li>
+<li>p 粘贴</li>
+<li>r 替换当前字符</li>
+<li>/ 查找关键字</li>
+</ul>
+<h2 id="5-2ex"><a href="#5-2ex" class="headerlink" title="5.2ex:"></a>5.2ex:</h2><ul>
+<li>w 保存当前修改</li>
+<li>q 退出，q!强制退出</li>
+<li>x 保存并退出 = wq</li>
+<li>set number 显示行号</li>
+<li>!系统命令 执行一个系统命令</li>
+<li>sh 切回命令行 ctrl+d 切回vim</li>
+</ul>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2018/02/05/linux学习笔记【二】/" title="linux学习笔记【二】">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/02/04/hello-world/" title="Hello World">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment valine -->
+			<!-- show valine comment -->
+<div id="valineComment" class="comment"></div>
+
+<!-- valine`s js & css -->
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/valine.min.js"></script>
+<link rel="stylesheet" href="/css/comment.css">
+
+<script>
+	var checkExistComment = setInterval(function() {
+		if( $('#valineComment').length ) {
+			new Valine({
+				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+				av: AV,
+				//使用id寻找div元素（使用class可能找不到）
+				el: '#valineComment',
+				emoticon_url: 'https://cloud.panjunwen.com/alu',
+				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
+				app_id: "3333....", //获取APP ID
+				app_key: "3333......", //获取APP KEY
+				placeholder: "no any!", //评论框占位提示文字        			
+			});
+			clearInterval(checkExistComment);
+		}
+	}, 100);
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-linux基础"><span class="post-toc-text">1.linux基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1命令"><span class="post-toc-text">1.1命令:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2用户命令"><span class="post-toc-text">1.2用户命令:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2进程命令"><span class="post-toc-text">1.2进程命令:</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-linux文件系统结构"><span class="post-toc-text">2.linux文件系统结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-linux文件系统"><span class="post-toc-text">3.linux文件系统</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-常用命令"><span class="post-toc-text">4 常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1日期和时间"><span class="post-toc-text">4.1日期和时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2输出查看"><span class="post-toc-text">4.2输出查看</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3查看硬件信息"><span class="post-toc-text">4.3查看硬件信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4关机，重启"><span class="post-toc-text">4.4关机，重启</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5归档，压缩"><span class="post-toc-text">4.5归档，压缩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-6查找"><span class="post-toc-text">4.6查找</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-VI-amp-VIM"><span class="post-toc-text">5.VI&amp;VIM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1esc"><span class="post-toc-text">5.1esc:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2ex"><span class="post-toc-text">5.2ex:</span></a></li></ol></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by gorkr. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+
